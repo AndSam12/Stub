@@ -18,8 +18,7 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class KafkaConfig {
-    @Autowired
-    private Environment env;
+
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
     @Value("${spring.kafka.name-topic1}")
@@ -47,7 +46,7 @@ public class KafkaConfig {
         return new KafkaTemplate<>(producerFactory());
     }
 
-    @Configuration
+
     public class KafkaTopic {
         @Bean
         public NewTopic topic1() {
